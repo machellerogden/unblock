@@ -11,7 +11,7 @@ var unblock = function (func) {
         queue = [],
         fn = {
         unblock: function (func) {
-            var a = args.slice(0);
+            var a = Array.prototype.slice.call(args, 0);
             return function () {
                 if (a.length < 1) a = (arguments.length) ? arguments : result;
                 setTimeout(function () {
@@ -27,7 +27,7 @@ var unblock = function (func) {
         },
         after: function (func) {
             return function () {
-                args = Array.prototype.slice.call(arguments, 0);
+                args = arguments;
                 queue.push(fn.unblock(func));
                 return fn;
             }

@@ -1,13 +1,19 @@
 /**
  * unblock - a single function for dead simple asynchronous control flow
  *
+ * @version v1.0.0
+ * @repository https://github.com/machellerogden/unblock
  * @author Mac Heller-Ogden
- *
+ * @copyright Mac Heller-Ogden 2014
+ * @license MIT
  */
 
-(function () {
-    var global = (function () { return this || (0, eval)('this'); }()),
-        unblock = function (func) {
+!function (name, definition) {
+    if (typeof module != 'undefined' && module.exports) module.exports = definition();
+    else if (typeof define == 'function' && typeof define.amd == 'object') define(definition);
+    else (function () { return this || (0, eval)('this'); }())[name] = definition();
+}('unblock', function() {
+    var unblock = function (func) {
         var result = [],
             args = [],
             queue = [],
@@ -37,5 +43,5 @@
         };
         return fn.unblock(func);
     };
-    global.unblock = unblock;
-}());
+    return unblock;
+});

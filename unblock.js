@@ -37,6 +37,5 @@
         };
         return fn.unblock(func);
     };
-    // export to global
     global.unblock = unblock;
 }());

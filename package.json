@@ -1,0 +1,22 @@
+{
+  "name": "unblock",
+  "version": "1.0.0",
+  "description": "a single function for dead simple asynchronous control flow",
+  "main": "unblock.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/machellerogden/unblock.git"
+  },
+  "keywords": [
+    "asynchronous",
+    "control",
+    "flow",
+    "async"
+  ],
+  "author": "Mac Heller-Ogden",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/machellerogden/unblock/issues"
+  },
+  "homepage": "https://github.com/machellerogden/unblock"
+}

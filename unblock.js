@@ -13,35 +13,34 @@
     else if (typeof define == 'function' && typeof define.amd == 'object') define(definition);
     else (function () { return this || (0, eval)('this'); }())[name] = definition();
 }('unblock', function() {
-    var unblock = function (func) {
+    return function (func) {
         var result = [],
             args = [],
             queue = [],
             fn = {
-            unblock: function (func) {
-                var a = Array.prototype.slice.call(args, 0);
-                return function () {
-                    if (a.length < 1) a = (arguments.length) ? arguments : result;
-                    setTimeout(function () {
-                        result = [func.apply(fn, a)];
-                        if (queue.length) queue.shift().apply(fn, result);
-                    }, 0);
+                u: function (func) {
+                    var a = Array.prototype.slice.call(args, 0);
+                    return function () {
+                        if (a.length < 1) a = (arguments.length) ? arguments : result;
+                        setTimeout(function () {
+                            result = [func.apply(fn, a)];
+                            if (queue.length) queue.shift().apply(fn, result);
+                        }, 0);
+                        return fn;
+                    };
+                },
+                then: function (func) {
+                    queue.push(fn.u(func));
                     return fn;
-                };
-            },
-            then: function (func) {
-                queue.push(fn.unblock(func));
-                return fn;
-            },
-            after: function (func) {
-                return function () {
-                    args = arguments;
-                    queue.push(fn.unblock(func));
-                    return fn;
-                };
-            }
+                },
+                after: function (func) {
+                    return function () {
+                        args = arguments;
+                        queue.push(fn.u(func));
+                        return fn;
+                    };
+                }
         };
-        return fn.unblock(func);
+        return fn.u(func);
     };
-    return unblock;
 });

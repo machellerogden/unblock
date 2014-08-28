@@ -2,13 +2,11 @@
 
 A single function for dead simple asynchronous control flow.
 
-## Install
-
-### NPM
+## NPM
 
     npm install unblock
 
-### Manual
+## Download
 
 Download [unblock.js](https://github.com/machellerogden/unblock/blob/master/unblock.js) and include in your page or in your app via script tag or RequireJS.
 

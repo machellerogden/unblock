@@ -1,6 +1,6 @@
 # Unblock.js
 
-A single function for dead simple asynchronous control flow. Also, this is perhaps the smallest async micro-library ever, weighing in at just 219 bytes gzipped (310 bytes when including module wrapper).
+A single function for dead simple asynchronous control flow. Also, this is perhaps the smallest async micro-library ever, weighing in at just 219 bytes gzipped (309 bytes when including module wrapper).
 
 ## NPM
 

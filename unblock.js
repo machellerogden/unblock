@@ -19,7 +19,7 @@
             queue = [],
             fn = {
                 u: function (func) {
-                    var a = Array.prototype.slice.call(args, 0);
+                    var a = Array.prototype.slice.call(args);
                     return function () {
                         if (a.length < 1) a = (arguments.length) ? arguments : result;
                         setTimeout(function () {

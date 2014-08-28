@@ -2,9 +2,18 @@
 
 A single function for dead simple asynchronous control flow.
 
-## Usage
+## Install
 
-Include [unblock.js](https://github.com/machellerogden/unblock/blob/master/unblock.js) on your page and use as shown in the following example:
+### NPM
+
+    npm install unblock
+
+### Manual
+
+Download [unblock.js](https://github.com/machellerogden/unblock/blob/master/unblock.js) and include in your page or in your app via script tag or RequireJS.
+
+
+## Example
 
     // this is a blocking function to use in the example below
     var sleep = function (seconds) {
